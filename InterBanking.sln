@@ -17,16 +17,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Core.Applicati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Core.Domain", "InterBanking.Core.Domain\InterBanking.Core.Domain.csproj", "{BC554168-BB50-43F0-818B-6473BF9B9C58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Infrastructure.Persistance", "StockApp.Infrastructure.Persistance\InterBanking.Infrastructure.Persistance.csproj", "{40110431-B99B-43E6-A790-38F2E067191F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Infrastructure.Shared", "StockApp.Infrastructure.Shared\InterBanking.Infrastructure.Shared.csproj", "{00BC744E-C1DC-4D09-93A3-0DE848C36FAE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Infrastructuer.Identity", "InterBanking.Infrastructuer.Identity\InterBanking.Infrastructuer.Identity.csproj", "{05D46006-B205-4C70-8A34-3628DFC08C6C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7DED182F-0CB5-4062-B52C-360EC54D8B8B}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Infrastructure.Persistance", "InterBanking.Infrastructure.Persistance\InterBanking.Infrastructure.Persistance.csproj", "{08242C9C-6AE9-410A-A107-32B60DD2081D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Infrastructure.Shared", "InterBanking.Infrastructure.Shared\InterBanking.Infrastructure.Shared.csproj", "{445BBE47-8D85-46AA-A6D2-DB20036292EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,18 +46,18 @@ Global
 		{BC554168-BB50-43F0-818B-6473BF9B9C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC554168-BB50-43F0-818B-6473BF9B9C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC554168-BB50-43F0-818B-6473BF9B9C58}.Release|Any CPU.Build.0 = Release|Any CPU
-		{40110431-B99B-43E6-A790-38F2E067191F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40110431-B99B-43E6-A790-38F2E067191F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40110431-B99B-43E6-A790-38F2E067191F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40110431-B99B-43E6-A790-38F2E067191F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{00BC744E-C1DC-4D09-93A3-0DE848C36FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00BC744E-C1DC-4D09-93A3-0DE848C36FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00BC744E-C1DC-4D09-93A3-0DE848C36FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00BC744E-C1DC-4D09-93A3-0DE848C36FAE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{05D46006-B205-4C70-8A34-3628DFC08C6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{05D46006-B205-4C70-8A34-3628DFC08C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05D46006-B205-4C70-8A34-3628DFC08C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05D46006-B205-4C70-8A34-3628DFC08C6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08242C9C-6AE9-410A-A107-32B60DD2081D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08242C9C-6AE9-410A-A107-32B60DD2081D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08242C9C-6AE9-410A-A107-32B60DD2081D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08242C9C-6AE9-410A-A107-32B60DD2081D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{445BBE47-8D85-46AA-A6D2-DB20036292EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{445BBE47-8D85-46AA-A6D2-DB20036292EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{445BBE47-8D85-46AA-A6D2-DB20036292EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{445BBE47-8D85-46AA-A6D2-DB20036292EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,8 +69,8 @@ Global
 		{8F315D30-7E75-4FAA-9272-8E3B99822F44} = {D50A8887-20A1-4D54-AB13-6FA29AF1E869}
 		{2C7BDF30-2C8A-4A3D-8DC5-C6D4E7475D7C} = {7693630D-70D8-4FBC-8438-0FB040BD5AC8}
 		{BC554168-BB50-43F0-818B-6473BF9B9C58} = {7693630D-70D8-4FBC-8438-0FB040BD5AC8}
-		{40110431-B99B-43E6-A790-38F2E067191F} = {81E27A28-CDBE-4255-8DFC-7256C3953DA8}
-		{00BC744E-C1DC-4D09-93A3-0DE848C36FAE} = {81E27A28-CDBE-4255-8DFC-7256C3953DA8}
 		{05D46006-B205-4C70-8A34-3628DFC08C6C} = {81E27A28-CDBE-4255-8DFC-7256C3953DA8}
+		{08242C9C-6AE9-410A-A107-32B60DD2081D} = {81E27A28-CDBE-4255-8DFC-7256C3953DA8}
+		{445BBE47-8D85-46AA-A6D2-DB20036292EA} = {81E27A28-CDBE-4255-8DFC-7256C3953DA8}
 	EndGlobalSection
 EndGlobal

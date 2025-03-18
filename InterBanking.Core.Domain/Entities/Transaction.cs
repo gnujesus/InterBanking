@@ -10,14 +10,16 @@ namespace InterBanking.Core.Domain.Entities
     public class Transaction : BaseEntity
     {
         public string? Description { get; set; } = string.Empty;
-        public int Amount { get; set; }
-        public int FromAccountId { get; set; } // Fk
-        public int ToAccountId{ get; set; } // Fk
+        public double Amount { get; set; }
+        public int OriginAccountId { get; set; } // Fk
+        public int DestinationAccountId{ get; set; } // Fk
 
 
         // Navegation Properties
-        public Account FromAccount { get; set; }
-        public Account ToAccount { get; set; }
+        public Account OriginAccount { get; set; }
+        
+        // We're going to have to make a query for this one
+        // public Account DestinationAccount { get; set; }
 
     }
 }

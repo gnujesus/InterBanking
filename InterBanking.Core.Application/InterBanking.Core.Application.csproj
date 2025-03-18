@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\InterBanking.Core.Domain\InterBanking.Core.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
