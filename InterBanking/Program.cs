@@ -1,4 +1,6 @@
-using InterBanking.Infrastructure.Persistance.Contexts;
+using InterBanking.Core.Application;
+using InterBanking.Infrastructure.Persistence;
+using InterBanking.Infrastructure.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,6 +17,12 @@ builder.Services.AddDbContext<ApplicationContext>(opts => opts.UseNpgsql(connect
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+// ---  Add Layers  --- 
+
+builder.Services.AddApplicationLayer(builder.Configuration);
+builder.Services.AddPersistenceInfrastructureLayer(builder.Configuration);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

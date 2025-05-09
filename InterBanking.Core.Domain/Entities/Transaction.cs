@@ -7,7 +7,7 @@ using InterBanking.Core.Domain.Shared;
 
 namespace InterBanking.Core.Domain.Entities
 {
-    public class Transaction : BaseEntity
+    public class Transaction : AuditableBaseEntity
     {
         public string? Description { get; set; } = string.Empty;
         public double Amount { get; set; }
@@ -17,9 +17,7 @@ namespace InterBanking.Core.Domain.Entities
 
         // Navegation Properties
         public Account OriginAccount { get; set; }
-        
-        // We're going to have to make a query for this one
-        // public Account DestinationAccount { get; set; }
+        public Account DestinationAccount { get; set; }
 
     }
 }

@@ -1,8 +1,8 @@
 ﻿using InterBanking.Core.Application.Interfaces.Repositories;
 using InterBanking.Core.Domain.Entities;
-using InterBanking.Infrastructure.Persistance.Contexts;
+using InterBanking.Infrastructure.Persistence.Contexts;
 
-namespace InterBanking.Infrastructure.Persistance.Repositories;
+namespace InterBanking.Infrastructure.Persistence.Repositories;
 
 public class AccountRepository : GenericRepository<Account> , IAccountRepository
 {

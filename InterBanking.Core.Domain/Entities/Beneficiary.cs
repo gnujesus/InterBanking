@@ -6,6 +6,6 @@ public class Beneficiary
     public string Alias { get; set; }
     public string AccountNumber { get; set; }
     
-    // Owner / User created the beneficiary
+    // Owner / User that created the beneficiary
     public int UserId { get; set; }
 }

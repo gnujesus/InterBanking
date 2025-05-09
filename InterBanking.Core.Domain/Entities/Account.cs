@@ -8,7 +8,7 @@ using InterBanking.Core.Domain.Shared;
 
 namespace InterBanking.Core.Domain.Entities
 {
-    public class Account : BaseEntity
+    public class Account : AuditableBaseEntity
     {
         public int AccountNumber { get; set; }
         public double Amount { get; set; }
@@ -35,6 +35,7 @@ namespace InterBanking.Core.Domain.Entities
         public Currencies? Currency { get; set; } = Currencies.DOP;
 
         // Navegation Properties
-        public List<Transaction> Transactions { get; set; }
+        public List<Transaction> OriginTransactions { get; set; } // Transactions in which this account was the origin
+        public List<Transaction> DestinationTransactions { get; set; } // Transactions in which this account was the destination
     }
 }

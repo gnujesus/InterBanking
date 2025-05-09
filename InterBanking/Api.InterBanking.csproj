@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\InterBanking.Infrastructure.Persistance\InterBanking.Infrastructure.Persistance.csproj" />
+    <ProjectReference Include="..\InterBanking.Infrastructure.Persistence\InterBanking.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

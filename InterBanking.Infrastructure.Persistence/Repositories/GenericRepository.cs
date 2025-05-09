@@ -1,8 +1,8 @@
 ﻿using InterBanking.Core.Application.Interfaces.Repositories;
-using InterBanking.Infrastructure.Persistance.Contexts;
+using InterBanking.Infrastructure.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 
-namespace InterBanking.Infrastructure.Persistance.Repositories;
+namespace InterBanking.Infrastructure.Persistence.Repositories;
 
 public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity : class
 {
@@ -27,12 +27,12 @@ public class GenericRepository<Entity> : IGenericRepository<Entity> where Entity
         return await _dbContext.Set<Entity>().FindAsync(id);
     }
 
-    public async Task<List<Entity>> GetAllAsync(int id)
+    public async Task<List<Entity>> GetAllAsync()
     {
         return await _dbContext.Set<Entity>().ToListAsync();
     }
 
-    public async Task<Entity> UpdateAsync(Entity entity)
+    public async Task<Entity> UpdateAsync(Entity entity, int id)
     {
         // TODO: Check it works
         _dbContext.Entry(entity).State = EntityState.Modified;

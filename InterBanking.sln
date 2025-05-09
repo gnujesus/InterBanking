@@ -17,14 +17,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Core.Applicati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Core.Domain", "InterBanking.Core.Domain\InterBanking.Core.Domain.csproj", "{BC554168-BB50-43F0-818B-6473BF9B9C58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Infrastructuer.Identity", "InterBanking.Infrastructuer.Identity\InterBanking.Infrastructuer.Identity.csproj", "{05D46006-B205-4C70-8A34-3628DFC08C6C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Infrastructure.Identity", "InterBanking.Infrastructure.Identity\InterBanking.Infrastructure.Identity.csproj", "{05D46006-B205-4C70-8A34-3628DFC08C6C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7DED182F-0CB5-4062-B52C-360EC54D8B8B}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
+		technical-docs.md = technical-docs.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Infrastructure.Persistance", "InterBanking.Infrastructure.Persistance\InterBanking.Infrastructure.Persistance.csproj", "{08242C9C-6AE9-410A-A107-32B60DD2081D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Infrastructure.Persistence", "InterBanking.Infrastructure.Persistence\InterBanking.Infrastructure.Persistence.csproj", "{08242C9C-6AE9-410A-A107-32B60DD2081D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterBanking.Infrastructure.Shared", "InterBanking.Infrastructure.Shared\InterBanking.Infrastructure.Shared.csproj", "{445BBE47-8D85-46AA-A6D2-DB20036292EA}"
 EndProject

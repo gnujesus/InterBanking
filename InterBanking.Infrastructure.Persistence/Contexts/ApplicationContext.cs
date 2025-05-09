@@ -3,13 +3,14 @@ using InterBanking.Core.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using InterBanking.Core.Domain.Enums;
 
-namespace InterBanking.Infrastructure.Persistance.Contexts
+namespace InterBanking.Infrastructure.Persistence.Contexts
 {
     public class ApplicationContext : DbContext
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> opts) : base(opts){}
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Beneficiary> Beneficiaries { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -43,17 +44,18 @@ namespace InterBanking.Infrastructure.Persistance.Contexts
 
             #region Relations
 
-            modelBuilder.Entity<Account>()
-                .HasMany<Transaction>(a => a.Transactions)
-                .WithOne(t => t.OriginAccount)
-                .HasForeignKey(t => t.OriginAccountId);
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.OriginAccount)
+                .WithMany(a => a.OriginTransactions)
+                .HasForeignKey(t => t.OriginAccountId)
+                .OnDelete(DeleteBehavior.Restrict);
             
-            // Only one navigation property per account 
-            modelBuilder.Entity<Account>()
-                .HasMany<Transaction>(a => a.Transactions)
-                .WithOne()
-                .HasForeignKey(t => t.DestinationAccountId);
-
+            modelBuilder.Entity<Transaction>()
+                .HasOne(t => t.DestinationAccount)
+                .WithMany(a => a.DestinationTransactions)
+                .HasForeignKey(t => t.DestinationAccountId)
+                .OnDelete(DeleteBehavior.Restrict);
+            
             #endregion
             
             #region Account Properties 
@@ -77,6 +79,14 @@ namespace InterBanking.Infrastructure.Persistance.Contexts
                 .Property(t => t.Description)
                 .HasMaxLength(255);
                 
+            #endregion
+            
+            #region Beneficiary Properties
+                
+            modelBuilder.Entity<Beneficiary>()
+                .Property(t => t.Alias)
+                .HasMaxLength(100);
+            
             #endregion
         }
     }

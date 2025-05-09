@@ -1,13 +1,16 @@
 ﻿namespace InterBanking.Core.Application.Interfaces.Services;
 
-public interface IGenericService<Entity> where Entity : class
+public interface IGenericService<Entity, ViewModel, SaveViewModel> 
+    where Entity : class
+    where ViewModel: class
+    where SaveViewModel : class
 {
-    Task<Entity> Add(Entity entity);
+    Task<SaveViewModel> Add(SaveViewModel svm);
 
-    Task<Entity> GetById(int id);
-    Task<List<Entity>> GetAll(int id);
+    Task<ViewModel> GetById(int id);
+    Task<List<ViewModel>> GetAll();
 
-    Task<Entity> Update(Entity entity);
+    Task<SaveViewModel> Update(SaveViewModel svm, int id);
 
-    Task Delete(Entity entity);
+    Task Delete(ViewModel vm);
 }

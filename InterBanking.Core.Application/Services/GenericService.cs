@@ -1,40 +1,51 @@
-﻿using InterBanking.Core.Application.Interfaces.Repositories;
+﻿using AutoMapper;
+using InterBanking.Core.Application.Interfaces.Repositories;
 using InterBanking.Core.Application.Interfaces.Services;
 
 namespace InterBanking.Core.Application.Services;
 
-public class GenericService<Entity> : IGenericService<Entity> where Entity : class 
+public class GenericService<Entity, ViewModel, SaveViewModel> : IGenericService<Entity, ViewModel, SaveViewModel> 
+    where Entity: class
+    where ViewModel : class 
+    where SaveViewModel : class
 {
-    private readonly IGenericRepository<Entity> _repository;
+    // Implement automapper
 
-    public GenericService(IGenericRepository<Entity> repository)
+    private readonly IGenericRepository<Entity> _repository;
+    private readonly IMapper _mapper;
+
+    public GenericService(IGenericRepository<Entity> repository, IMapper mapper)
     {
         _repository = repository;
+        _mapper = mapper;
     }
 
-
-    public async Task<Entity> Add(Entity entity)
+    public async Task<SaveViewModel> Add(SaveViewModel svm)
     {
-        return await _repository.AddAsync(entity);
+        Entity mappedEntity =  _mapper.Map<Entity>(svm);
+        return _mapper.Map<SaveViewModel>(await _repository.AddAsync(mappedEntity));
     }
 
-    public async Task<Entity> GetById(int id)
+    public async Task<ViewModel> GetById(int id)
     {
-        return await _repository.GetByIdAsync(id);
+        return _mapper.Map<ViewModel>(await _repository.GetByIdAsync(id));
     }
 
-    public async Task<List<Entity>> GetAll(int id)
+    public async Task<List<ViewModel>> GetAll()
     {
-        return await _repository.GetAllAsync(id);
+        return _mapper.Map<List<ViewModel>>(await _repository.GetAllAsync());
     }
 
-    public Task<Entity> Update(Entity entity)
+    public async Task<SaveViewModel> Update(SaveViewModel vm, int id)
     {
-        return _repository.UpdateAsync(entity);
+        Entity entity = _mapper.Map<Entity>(vm);
+        return _mapper.Map<SaveViewModel>(await _repository.UpdateAsync(entity, id));
+        
     }
 
-    public Task Delete(Entity entity)
+    public Task Delete(ViewModel vm)
     {
+        Entity entity = _mapper.Map<Entity>(vm);
         return _repository.DeleteAsync(entity);
     }
 }
