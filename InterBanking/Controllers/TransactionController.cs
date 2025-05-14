@@ -11,7 +11,7 @@ namespace Api.InterBanking.Controllers;
 public class TransactionController : Controller
 {
     private readonly ITransactionService _transactionService;
-    
+
     public TransactionController(ITransactionService transactionService)
     {
         _transactionService = transactionService;
@@ -33,13 +33,13 @@ public class TransactionController : Controller
 
         return Ok(transaction);
     }
-    
+
     [HttpPost]
     public async Task<IActionResult> Create(SaveTransactionViewModel vm)
     {
         // TransactionViewModel transaction = await _transactionService.GetById(vm);
         return Ok();
     }
-    
-    
+
+
 }
