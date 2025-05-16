@@ -20,11 +20,16 @@ public class UserService : IUserService
         _mapper = mapper;
     }
     
-    public Task<UserViewModel> Add(RegisterViewModel rvm)
+    public async Task<UserViewModel> Add(RegisterViewModel rvm)
     {
-        throw new NotImplementedException();
+        var user = _mapper.Map<ApplicationUser>(rvm);
+        var result = await _userManager.CreateAsync(user, rvm.Password);
+        
+        if (!result.Succeeded) throw new Exception("User creation failed");
+        
+        return _mapper.Map<UserViewModel>(user);
     }
-
+    
     public Task<UserViewModel> GetById(int id)
     {
         throw new NotImplementedException();

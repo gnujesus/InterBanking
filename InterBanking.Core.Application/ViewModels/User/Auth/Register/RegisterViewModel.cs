@@ -2,7 +2,7 @@
 
 namespace InterBanking.Core.Application.ViewModels.User.Auth.Register;
 
-public class RegisterViewModel : ErrorViewModel
+public class RegisterViewModel
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }

@@ -1,4 +1,5 @@
 using InterBanking.Core.Application;
+using InterBanking.Infrastructure.Identity;
 using InterBanking.Infrastructure.Identity.Contexts;
 using InterBanking.Infrastructure.Identity.Entities;
 using InterBanking.Infrastructure.Persistence;
@@ -31,6 +32,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddApplicationLayer(builder.Configuration);
 builder.Services.AddPersistenceInfrastructureLayer(builder.Configuration);
+builder.Services.AddIdentityInfrastructureLayer(builder.Configuration);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
