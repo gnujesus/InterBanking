@@ -6,12 +6,16 @@ namespace InterBanking.Core.Application.ViewModels.Account;
 
 public class SaveAccountViewModel
 {
-        public int AccountNumber { get; set; }
+    public string AccountNumber { get; set; }
 
-        [Range(0, 200000.00)]
-        public double Amount { get; set; } = 0;
-        
-        public AccountTypes AccountType { get; set; } = AccountTypes.Savings;
+    [Range(0, 200000.00)] public double Amount { get; set; } = 0;
 
-        public Currencies Currency { get; set; } = Currencies.DOP;
+
+    // UUID
+    public string? UserId { get; set; } // FK
+
+
+    public AccountTypes AccountType { get; set; } = AccountTypes.Savings;
+
+    public Currencies Currency { get; set; } = Currencies.DOP;
 }

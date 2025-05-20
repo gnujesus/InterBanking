@@ -1,0 +1,1 @@
+﻿namespace InterBanking.Core.Application.Interfaces.Services;

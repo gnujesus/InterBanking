@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using InterBanking.Core.Application.ViewModels.User;
+using InterBanking.Core.Application.ViewModels.User.Auth;
+using InterBanking.Core.Application.ViewModels.User.Auth.Login;
 using InterBanking.Core.Application.ViewModels.User.Auth.Register;
 using InterBanking.Infrastructure.Identity.Entities;
 
@@ -11,6 +13,8 @@ public class IdentityProfile : Profile
     {
         CreateMap<ApplicationUser, UserViewModel>().ReverseMap();
         CreateMap<ApplicationUser, RegisterViewModel>().ReverseMap();
+        CreateMap<ApplicationUser, LoginViewModel>().ReverseMap();
+        CreateMap<ApplicationUser, AuthResponseViewModel>().ReverseMap();
     }
 }
 
@@ -20,21 +24,20 @@ public class IdentityProfile : Profile
     public string LastName { get; set; }
     public DateTime BirthDate { get; set; }
     public string NationalId { get; set; }
-    public string Address { get; set; } 
+    public string Address { get; set; }
     public ICollection<ApplicationRole> Roles { get; set; } = [];
-    
+
     + IdentityUser properties
 */
 
 /* UserViewModel
- 
+
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string UserName { get; set; }
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
     public DateTime BirthDate { get; set; }
-    public string Address { get; set; } 
- 
-*/
+    public string Address { get; set; }
 
+*/

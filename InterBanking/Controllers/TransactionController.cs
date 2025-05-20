@@ -2,6 +2,8 @@
 using InterBanking.Core.Application.Services;
 using InterBanking.Core.Application.ViewModels.Transaction;
 using InterBanking.Core.Domain.Entities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.InterBanking.Controllers;
@@ -17,11 +19,15 @@ public class TransactionController : Controller
         _transactionService = transactionService;
     }
 
-    [HttpGet]
+    // NOTE: if Identity is set up, the default authentication schema will be cookies, meaning, the app will try to 
+    // authenticate via cookies. To override this (use Identity and JWT) you have to specify the AutheticationScheme for each 
+    // route you want authenticated.
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [HttpGet("Transactions")]
     public async Task<IActionResult> GetAll()
     {
         // TODO: I must return a ViewModel, not a transaction directly
-        List<TransactionViewModel> transactions = await _transactionService.GetAll();
+        var transactions = await _transactionService.GetAll();
 
         return Ok(transactions);
     }
@@ -29,7 +35,7 @@ public class TransactionController : Controller
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
-        TransactionViewModel transaction = await _transactionService.GetById(id);
+        var transaction = await _transactionService.GetById(id);
 
         return Ok(transaction);
     }
@@ -37,9 +43,8 @@ public class TransactionController : Controller
     [HttpPost]
     public async Task<IActionResult> Create(SaveTransactionViewModel vm)
     {
-        // TransactionViewModel transaction = await _transactionService.GetById(vm);
+        var transaction = await _transactionService.Add(vm);
+
         return Ok();
     }
-
-
 }

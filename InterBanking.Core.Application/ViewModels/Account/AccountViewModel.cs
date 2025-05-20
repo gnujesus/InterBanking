@@ -5,14 +5,16 @@ namespace InterBanking.Core.Application.ViewModels.Account;
 
 public class AccountViewModel
 {
-        public int AccountNumber { get; set; }
-        public double Amount { get; set; }
-        public string? AccountType { get; set; }
+    public int Id { get; set; }
+    public string AccountNumber { get; set; }
+    public double Amount { get; set; }
+    public string? AccountType { get; set; }
 
-        // Owner
-        public int UserId { get; set; } // FK
-        public string? Currency { get; set; } 
+    // Owner
+    // UUID
+    public string UserId { get; set; } // FK
+    public string? Currency { get; set; }
 
-        // Navegation Properties
-        public List<TransactionViewModel> Transactions { get; set; }
+    // Navegation Properties
+    public List<TransactionViewModel> Transactions { get; set; }
 }

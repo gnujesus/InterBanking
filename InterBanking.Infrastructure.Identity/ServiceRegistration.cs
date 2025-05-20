@@ -8,9 +8,10 @@ namespace InterBanking.Infrastructure.Identity;
 
 public static class ServiceRegistration
 {
-   public static void AddIdentityInfrastructureLayer(this IServiceCollection services, IConfiguration configuration)
-   {
-      services.AddAutoMapper(Assembly.GetExecutingAssembly());
-      services.AddTransient<IUserService, UserService>();
-   }
+    public static void AddIdentityInfrastructureLayer(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+        services.AddTransient<IUserService, UserService>();
+        services.AddTransient<ITokenService, TokenService>();
+    }
 }
